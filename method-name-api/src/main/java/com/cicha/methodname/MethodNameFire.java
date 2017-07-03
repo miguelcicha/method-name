@@ -15,7 +15,7 @@ import org.aspectj.lang.JoinPoint;
  *
  * @author Cicha
  */
-public class MethodsNameFire {
+public class MethodNameFire {
 
     private final static List<MethodNameListener> methodNameListenersBefore = new CopyOnWriteArrayList<>();
     private final static List<MethodNameListener> methodNameListenersAfter = new CopyOnWriteArrayList<>();

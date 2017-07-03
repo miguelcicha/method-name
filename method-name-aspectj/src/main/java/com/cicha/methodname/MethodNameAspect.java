@@ -25,7 +25,7 @@ public class MethodNameAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         MethodName methodName = method.getAnnotation(MethodName.class);
-        MethodsNameFire.fireBefore(methodName, joinPoint);
+        MethodNameFire.fireBefore(methodName, joinPoint);
     }
 
     @AfterReturning(pointcut = "execution(@MethodName  * *.*(..))", returning = "res")
@@ -33,7 +33,7 @@ public class MethodNameAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         MethodName methodName = method.getAnnotation(MethodName.class);
-        MethodsNameFire.fireAfter(methodName, res, joinPoint);
+        MethodNameFire.fireAfter(methodName, res, joinPoint);
     }
 
 }
