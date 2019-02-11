@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 import org.aspectj.lang.JoinPoint;
 
 /**
@@ -49,5 +50,17 @@ public class MethodNameFire {
     public static void removeMethodNameListenersAfter(MethodNameListener lmi) {
         methodNameListenersAfter.remove(lmi);
     }
+    
+    public static <J extends MethodNameListener> void  removeMethodNameListenersAfter(Class<J> clazz) {
+        List<MethodNameListener> collect = methodNameListenersAfter.stream().filter(mla->!mla.getClass().equals(clazz)).collect(Collectors.toList());
+        methodNameListenersAfter.clear();
+        methodNameListenersAfter.addAll(collect);
+    }
+    public static <J extends MethodNameListener> void  removeMethodNameListenersBefore(Class<J> clazz) {
+        List<MethodNameListener> collect = methodNameListenersBefore.stream().filter(mla->!mla.getClass().equals(clazz)).collect(Collectors.toList());
+        methodNameListenersBefore.clear();
+        methodNameListenersBefore.addAll(collect);
+    }
+    
 
 }

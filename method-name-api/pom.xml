@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cicha.methodname</groupId>
     <artifactId>method-name-api</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,8 +15,25 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.8.10</version>
-            <scope>provided</scope>
+            <version>1.9.2</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>Marandu</id>
+            <url>http://artifactory.marandu.com.ar/artifactory/libs-release</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>interval:15</updatePolicy>
+            </snapshots>
+        </repository> 
+    </repositories>
+    
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>Marandu-releases</name>
+            <url>http://artifactory.marandu.com.ar/artifactory/libs-release-local/</url>
+        </repository>
+    </distributionManagement>
 </project>
